@@ -13,6 +13,8 @@ import { SearchInput } from './search-input'
 import { NewClientDialog } from './new-client-dialog'
 import type { City } from '@/types/database.types'
 
+export const revalidate = 0
+
 export default async function ClientsPage({
   searchParams,
 }: {

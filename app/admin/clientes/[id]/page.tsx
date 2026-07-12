@@ -13,6 +13,8 @@ import {
 import { AddPropertyDialog } from './add-property-dialog'
 import { EditPropertyDialog } from './edit-property-dialog'
 
+export const revalidate = 0
+
 export default async function ClientDetailPage({
   params,
 }: {
