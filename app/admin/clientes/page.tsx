@@ -36,7 +36,8 @@ export default async function ClientsPage({
     query = query.or(`full_name.ilike.%${q}%,email.ilike.%${q}%`)
   }
 
-  const { data: clients } = await query
+  const { data: clients, error } = await query
+  console.log('DEBUG clients:', JSON.stringify(clients), 'error:', error)
 
   const clientIds = (clients ?? []).map((c) => c.id)
   const propertiesByClient = new Map<string, City[]>()
