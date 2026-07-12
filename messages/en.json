@@ -71,7 +71,46 @@
     "clients": {
       "title": "Clients",
       "newClient": "New client",
-      "invite": "Invite client"
+      "invite": "Invite client",
+      "searchPlaceholder": "Search by name or email...",
+      "empty": "No clients yet.",
+      "noResults": "No clients found.",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "city": "City",
+        "properties": "Properties"
+      },
+      "form": {
+        "fullName": "Full name",
+        "email": "Email",
+        "phone": "Phone",
+        "city": "City",
+        "submit": "Create & invite",
+        "submitting": "Sending invite...",
+        "success": "Client created. An invite email was sent.",
+        "cancel": "Cancel"
+      },
+      "detail": {
+        "back": "Back to clients",
+        "properties": "Properties",
+        "addProperty": "Add property",
+        "noProperties": "No properties on file.",
+        "columns": {
+          "name": "Name",
+          "address": "Address",
+          "city": "City"
+        },
+        "propertyForm": {
+          "name": "Property name",
+          "address": "Address",
+          "city": "City",
+          "submit": "Add property",
+          "submitting": "Saving...",
+          "cancel": "Cancel"
+        }
+      }
     },
     "providers": {
       "title": "Providers / Staff",

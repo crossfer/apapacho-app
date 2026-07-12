@@ -71,7 +71,46 @@
     "clients": {
       "title": "Clientes",
       "newClient": "Nuevo cliente",
-      "invite": "Invitar cliente"
+      "invite": "Invitar cliente",
+      "searchPlaceholder": "Buscar por nombre o correo...",
+      "empty": "Aún no hay clientes.",
+      "noResults": "No se encontraron clientes.",
+      "columns": {
+        "name": "Nombre",
+        "email": "Correo",
+        "phone": "Teléfono",
+        "city": "Ciudad",
+        "properties": "Propiedades"
+      },
+      "form": {
+        "fullName": "Nombre completo",
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "city": "Ciudad",
+        "submit": "Crear e invitar",
+        "submitting": "Enviando invitación...",
+        "success": "Cliente creado. Se envió un correo de invitación.",
+        "cancel": "Cancelar"
+      },
+      "detail": {
+        "back": "Volver a clientes",
+        "properties": "Propiedades",
+        "addProperty": "Agregar propiedad",
+        "noProperties": "Sin propiedades registradas.",
+        "columns": {
+          "name": "Nombre",
+          "address": "Dirección",
+          "city": "Ciudad"
+        },
+        "propertyForm": {
+          "name": "Nombre de la propiedad",
+          "address": "Dirección",
+          "city": "Ciudad",
+          "submit": "Agregar propiedad",
+          "submitting": "Guardando...",
+          "cancel": "Cancelar"
+        }
+      }
     },
     "providers": {
       "title": "Proveedores / Staff",

@@ -106,9 +106,12 @@ create index if not exists idx_orders_staff             on public.service_orders
 create index if not exists idx_orders_status            on public.service_orders (status);
 create index if not exists idx_orders_scheduled_at      on public.service_orders (scheduled_at);
 create index if not exists idx_updates_order            on public.service_updates (order_id);
+create index if not exists idx_updates_staff             on public.service_updates (staff_id);
 create index if not exists idx_photos_order             on public.service_photos (order_id);
+create index if not exists idx_photos_update             on public.service_photos (update_id);
 create index if not exists idx_vendors_profile          on public.vendors (profile_id);
 create index if not exists idx_notifications_user        on public.notifications (user_id);
+create index if not exists idx_notifications_order        on public.notifications (order_id);
 
 -- =============================================================================
 -- HELPER FUNCTIONS  (SECURITY DEFINER → bypass RLS, prevents policy recursion)

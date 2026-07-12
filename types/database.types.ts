@@ -55,6 +55,7 @@ export interface Database {
           id: string
           role: UserRole
           full_name: string | null
+          email: string | null
           phone: string | null
           avatar_url: string | null
           language: Language
@@ -64,6 +65,7 @@ export interface Database {
           id: string
           role: UserRole
           full_name?: string | null
+          email?: string | null
           phone?: string | null
           avatar_url?: string | null
           language?: Language
