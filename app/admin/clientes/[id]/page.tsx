@@ -11,6 +11,7 @@ import {
   TableCell,
 } from '@/components/ui/table'
 import { AddPropertyDialog } from './add-property-dialog'
+import { EditPropertyDialog } from './edit-property-dialog'
 
 export default async function ClientDetailPage({
   params,
@@ -71,6 +72,7 @@ export default async function ClientDetailPage({
                 <TableHead>{t('columns.name')}</TableHead>
                 <TableHead>{t('columns.address')}</TableHead>
                 <TableHead>{t('columns.city')}</TableHead>
+                <TableHead />
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -80,6 +82,15 @@ export default async function ClientDetailPage({
                   <TableCell>{property.address ?? '—'}</TableCell>
                   <TableCell>
                     {property.city ? tCities(property.city) : '—'}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    <EditPropertyDialog
+                      clientId={client.id}
+                      propertyId={property.id}
+                      initialName={property.name}
+                      initialAddress={property.address}
+                      initialCity={property.city}
+                    />
                   </TableCell>
                 </TableRow>
               ))}

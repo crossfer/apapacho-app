@@ -96,6 +96,7 @@
         "back": "Volver a clientes",
         "properties": "Propiedades",
         "addProperty": "Agregar propiedad",
+        "editProperty": "Editar",
         "noProperties": "Sin propiedades registradas.",
         "columns": {
           "name": "Nombre",
@@ -107,6 +108,7 @@
           "address": "Dirección",
           "city": "Ciudad",
           "submit": "Agregar propiedad",
+          "saveChanges": "Guardar cambios",
           "submitting": "Guardando...",
           "cancel": "Cancelar"
         }

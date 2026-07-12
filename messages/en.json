@@ -96,6 +96,7 @@
         "back": "Back to clients",
         "properties": "Properties",
         "addProperty": "Add property",
+        "editProperty": "Edit",
         "noProperties": "No properties on file.",
         "columns": {
           "name": "Name",
@@ -107,6 +108,7 @@
           "address": "Address",
           "city": "City",
           "submit": "Add property",
+          "saveChanges": "Save changes",
           "submitting": "Saving...",
           "cancel": "Cancel"
         }

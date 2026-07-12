@@ -10,22 +10,34 @@ import { Input } from '@/components/ui/input'
 import { Select } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { Modal } from '@/components/ui/modal'
-import { createClientAction } from './actions'
+import { updatePropertyAction } from './actions'
+import type { City } from '@/types/database.types'
 
 const schema = z.object({
-  fullName: z.string().trim().min(1),
-  email: z.string().trim().email(),
-  phone: z.string().trim().optional(),
+  name: z.string().trim().min(1),
+  address: z.string().trim().optional(),
   city: z.enum(['San Diego', 'Los Angeles']),
 })
 type FormValues = z.infer<typeof schema>
 
-export function NewClientDialog() {
-  const t = useTranslations('admin.clients')
+export function EditPropertyDialog({
+  clientId,
+  propertyId,
+  initialName,
+  initialAddress,
+  initialCity,
+}: {
+  clientId: string
+  propertyId: string
+  initialName: string | null
+  initialAddress: string | null
+  initialCity: City | null
+}) {
+  const t = useTranslations('admin.clients.detail')
+  const tForm = useTranslations('admin.clients.detail.propertyForm')
   const tCities = useTranslations('cities')
   const router = useRouter()
   const [serverError, setServerError] = useState<string | null>(null)
-  const [success, setSuccess] = useState(false)
 
   const {
     register,
@@ -34,60 +46,59 @@ export function NewClientDialog() {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
-    defaultValues: { city: 'San Diego' },
+    defaultValues: {
+      name: initialName ?? '',
+      address: initialAddress ?? '',
+      city: initialCity ?? 'San Diego',
+    },
   })
 
   return (
-    <Modal title={t('newClient')} triggerLabel={t('newClient')}>
+    <Modal
+      title={t('editProperty')}
+      triggerLabel={t('editProperty')}
+      triggerVariant="ghost"
+      triggerClassName="h-auto px-2 py-1 text-xs text-[#B83E7A] hover:bg-[#B83E7A]/10"
+    >
       {(close) => {
         async function onSubmit(values: FormValues) {
           setServerError(null)
-          const result = await createClientAction(values)
+          const result = await updatePropertyAction({
+            propertyId,
+            clientId,
+            ...values,
+          })
           if (result?.error) {
             setServerError(result.error)
             return
           }
-          setSuccess(true)
-          reset()
+          reset(values)
           router.refresh()
-          setTimeout(() => {
-            setSuccess(false)
-            close()
-          }, 1200)
+          close()
         }
 
         return (
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-[#6B4A34]">
-                {t('form.fullName')}
+                {tForm('name')}
               </label>
-              <Input autoComplete="name" {...register('fullName')} />
-              {errors.fullName && (
-                <span className="text-xs text-red-600">{errors.fullName.message}</span>
+              <Input {...register('name')} />
+              {errors.name && (
+                <span className="text-xs text-red-600">{errors.name.message}</span>
               )}
             </div>
 
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-[#6B4A34]">
-                {t('form.email')}
+                {tForm('address')}
               </label>
-              <Input type="email" autoComplete="email" {...register('email')} />
-              {errors.email && (
-                <span className="text-xs text-red-600">{errors.email.message}</span>
-              )}
+              <Input {...register('address')} />
             </div>
 
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-[#6B4A34]">
-                {t('form.phone')}
-              </label>
-              <Input type="tel" autoComplete="tel" {...register('phone')} />
-            </div>
-
-            <div className="flex flex-col gap-1">
-              <label className="text-sm font-medium text-[#6B4A34]">
-                {t('form.city')}
+                {tForm('city')}
               </label>
               <Select required {...register('city')}>
                 <option value="San Diego">{tCities('San Diego')}</option>
@@ -96,20 +107,17 @@ export function NewClientDialog() {
             </div>
 
             {serverError && <p className="text-sm text-red-600">{serverError}</p>}
-            {success && (
-              <p className="text-sm text-[#4F6D5A]">{t('form.success')}</p>
-            )}
 
             <div className="mt-2 flex justify-end gap-2">
               <Button type="button" variant="ghost" onClick={close}>
-                {t('form.cancel')}
+                {tForm('cancel')}
               </Button>
               <Button
                 type="submit"
                 disabled={isSubmitting}
                 className="bg-[#B83E7A] text-white hover:bg-[#B83E7A]/90"
               >
-                {isSubmitting ? t('form.submitting') : t('form.submit')}
+                {isSubmitting ? tForm('submitting') : tForm('saveChanges')}
               </Button>
             </div>
           </form>
