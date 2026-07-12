@@ -1,0 +1,107 @@
+{
+  "common": {
+    "appName": "Apapacho Homes",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "create": "Create",
+    "search": "Search",
+    "back": "Back",
+    "confirm": "Confirm",
+    "signOut": "Sign out",
+    "language": "Language",
+    "spanish": "Spanish",
+    "english": "English"
+  },
+  "auth": {
+    "login": "Sign in",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot your password?",
+    "resetPassword": "Reset password",
+    "sendResetLink": "Send reset link",
+    "welcomeBack": "Welcome back"
+  },
+  "roles": {
+    "admin": "Administrator",
+    "staff": "Staff",
+    "client": "Client"
+  },
+  "cities": {
+    "San Diego": "San Diego",
+    "Los Angeles": "Los Angeles"
+  },
+  "serviceTypes": {
+    "cleaning": "Cleaning",
+    "organization": "Organization",
+    "decoration": "Decoration",
+    "smart_home": "Smart home & security",
+    "mobility": "Mobility & recreation"
+  },
+  "serviceStatus": {
+    "scheduled": "Scheduled",
+    "in_progress": "In progress",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "received": "Received",
+    "diagnosing": "Diagnosing",
+    "in_repair": "In repair",
+    "ready": "Ready",
+    "delivered": "Delivered"
+  },
+  "admin": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "calendar": "Calendar",
+      "clients": "Clients",
+      "providers": "Providers",
+      "orders": "Orders",
+      "properties": "Properties",
+      "reports": "Reports"
+    },
+    "dashboard": {
+      "title": "Today's overview",
+      "todayOrders": "Today's orders",
+      "inProgress": "In progress",
+      "completed": "Completed",
+      "unassigned": "Pending assignment"
+    },
+    "clients": {
+      "title": "Clients",
+      "newClient": "New client",
+      "invite": "Invite client"
+    },
+    "providers": {
+      "title": "Providers / Staff",
+      "newProvider": "New provider",
+      "internal": "Internal",
+      "external": "External",
+      "specialties": "Specialties"
+    },
+    "orders": {
+      "title": "Service orders",
+      "newOrder": "New order",
+      "assignStaff": "Assign staff",
+      "reassign": "Reassign"
+    }
+  },
+  "staff": {
+    "myOrdersToday": "My orders today",
+    "startService": "Start service",
+    "completeService": "Complete",
+    "uploadPhoto": "Upload photo",
+    "addNote": "Add note",
+    "locationRequired": "Your location will be requested",
+    "locationDenied": "Location unavailable"
+  },
+  "client": {
+    "myProperties": "My properties",
+    "activeServices": "Active services",
+    "history": "History",
+    "requestService": "Request service",
+    "performedBy": "Performed by",
+    "at": "at"
+  }
+}

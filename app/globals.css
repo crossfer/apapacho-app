@@ -2,26 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 40 33% 99%;
+    --foreground: 25 34% 31%; /* nogal */
+    --card: 0 0% 100%;
+    --card-foreground: 25 34% 31%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 34% 31%;
+    --primary: 331 50% 48%; /* bugambilia */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 55% 81%; /* arena */
+    --secondary-foreground: 25 34% 31%;
+    --muted: 45 55% 92%;
+    --muted-foreground: 25 15% 45%;
+    --accent: 21 53% 51%; /* terracota */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 30% 85%;
+    --input: 40 30% 85%;
+    --ring: 331 50% 48%;
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: 152 16% 12%;
+    --foreground: 45 55% 92%;
+    --card: 152 16% 16%;
+    --card-foreground: 45 55% 92%;
+    --popover: 152 16% 16%;
+    --popover-foreground: 45 55% 92%;
+    --primary: 331 50% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 152 12% 22%;
+    --secondary-foreground: 45 55% 92%;
+    --muted: 152 12% 22%;
+    --muted-foreground: 45 20% 70%;
+    --accent: 21 53% 51%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 152 12% 24%;
+    --input: 152 12% 24%;
+    --ring: 331 50% 55%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

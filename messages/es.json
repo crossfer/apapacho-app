@@ -1,0 +1,107 @@
+{
+  "common": {
+    "appName": "Apapacho Homes",
+    "loading": "Cargando...",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "create": "Crear",
+    "search": "Buscar",
+    "back": "Volver",
+    "confirm": "Confirmar",
+    "signOut": "Cerrar sesión",
+    "language": "Idioma",
+    "spanish": "Español",
+    "english": "Inglés"
+  },
+  "auth": {
+    "login": "Iniciar sesión",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "resetPassword": "Restablecer contraseña",
+    "sendResetLink": "Enviar enlace de recuperación",
+    "welcomeBack": "Bienvenido de nuevo"
+  },
+  "roles": {
+    "admin": "Administrador",
+    "staff": "Operario",
+    "client": "Cliente"
+  },
+  "cities": {
+    "San Diego": "San Diego",
+    "Los Angeles": "Los Ángeles"
+  },
+  "serviceTypes": {
+    "cleaning": "Limpieza",
+    "organization": "Organización",
+    "decoration": "Decoración",
+    "smart_home": "Domótica y seguridad",
+    "mobility": "Movilidad y recreación"
+  },
+  "serviceStatus": {
+    "scheduled": "Agendado",
+    "in_progress": "En proceso",
+    "completed": "Completado",
+    "cancelled": "Cancelado",
+    "received": "Recibido",
+    "diagnosing": "Diagnóstico",
+    "in_repair": "En reparación",
+    "ready": "Listo",
+    "delivered": "Entregado"
+  },
+  "admin": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "calendar": "Calendario",
+      "clients": "Clientes",
+      "providers": "Proveedores",
+      "orders": "Órdenes",
+      "properties": "Propiedades",
+      "reports": "Reportes"
+    },
+    "dashboard": {
+      "title": "Resumen del día",
+      "todayOrders": "Órdenes de hoy",
+      "inProgress": "En progreso",
+      "completed": "Completadas",
+      "unassigned": "Pendientes de asignar"
+    },
+    "clients": {
+      "title": "Clientes",
+      "newClient": "Nuevo cliente",
+      "invite": "Invitar cliente"
+    },
+    "providers": {
+      "title": "Proveedores / Staff",
+      "newProvider": "Nuevo proveedor",
+      "internal": "Interno",
+      "external": "Externo",
+      "specialties": "Especialidades"
+    },
+    "orders": {
+      "title": "Órdenes de servicio",
+      "newOrder": "Nueva orden",
+      "assignStaff": "Asignar operario",
+      "reassign": "Reasignar"
+    }
+  },
+  "staff": {
+    "myOrdersToday": "Mis órdenes de hoy",
+    "startService": "Iniciar servicio",
+    "completeService": "Completar",
+    "uploadPhoto": "Subir foto",
+    "addNote": "Agregar nota",
+    "locationRequired": "Se solicitará tu ubicación",
+    "locationDenied": "Ubicación no disponible"
+  },
+  "client": {
+    "myProperties": "Mis propiedades",
+    "activeServices": "Servicios activos",
+    "history": "Historial",
+    "requestService": "Solicitar servicio",
+    "performedBy": "Realizado por",
+    "at": "a las"
+  }
+}
