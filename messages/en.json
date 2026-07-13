@@ -71,6 +71,8 @@
     "clients": {
       "title": "Clients",
       "newClient": "New client",
+      "editClient": "Edit client",
+      "edit": "Edit",
       "invite": "Invite client",
       "searchPlaceholder": "Search by name or email...",
       "empty": "No clients yet.",
@@ -80,7 +82,8 @@
         "email": "Email",
         "phone": "Phone",
         "city": "City",
-        "properties": "Properties"
+        "properties": "Properties",
+        "actions": "Actions"
       },
       "form": {
         "fullName": "Full name",
@@ -89,7 +92,10 @@
         "city": "City",
         "submit": "Create & invite",
         "submitting": "Sending invite...",
+        "saveChanges": "Save changes",
+        "saving": "Saving...",
         "success": "Client created. An invite email was sent.",
+        "editSuccess": "Client updated.",
         "cancel": "Cancel"
       },
       "detail": {

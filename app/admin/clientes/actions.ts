@@ -12,6 +12,11 @@ const schema = z.object({
   city: z.enum(['San Diego', 'Los Angeles']),
 })
 
+const updateSchema = schema.extend({
+  clientId: z.string().uuid(),
+  propertyId: z.string().uuid().nullable().optional(),
+})
+
 export async function createClientAction(input: z.infer<typeof schema>) {
   await requireAdmin()
 
@@ -55,5 +60,64 @@ export async function createClientAction(input: z.infer<typeof schema>) {
   }
 
   revalidatePath('/admin/clientes')
+  return {}
+}
+
+export async function updateClientAction(input: z.infer<typeof updateSchema>) {
+  await requireAdmin()
+
+  const parsed = updateSchema.safeParse(input)
+  if (!parsed.success) {
+    return { error: 'Datos inválidos.' }
+  }
+  const { clientId, propertyId, fullName, email, phone, city } = parsed.data
+
+  const admin = createServiceRoleClient()
+
+  const { error: authError } = await admin.auth.admin.updateUserById(clientId, {
+    email,
+    user_metadata: { role: 'client', full_name: fullName },
+  })
+
+  if (authError) {
+    return { error: authError.message }
+  }
+
+  const { error: profileError } = await admin
+    .from('profiles')
+    .update({
+      full_name: fullName,
+      email,
+      phone: phone || null,
+    })
+    .eq('id', clientId)
+    .eq('role', 'client')
+
+  if (profileError) {
+    return { error: 'No se pudo actualizar el cliente.' }
+  }
+
+  if (propertyId) {
+    const { error: propertyError } = await admin
+      .from('properties')
+      .update({ city })
+      .eq('id', propertyId)
+      .eq('client_id', clientId)
+
+    if (propertyError) {
+      return { error: 'Cliente actualizado, pero no se pudo actualizar la ciudad.' }
+    }
+  } else {
+    const { error: propertyError } = await admin
+      .from('properties')
+      .insert({ client_id: clientId, city })
+
+    if (propertyError) {
+      return { error: 'Cliente actualizado, pero no se pudo crear la propiedad inicial.' }
+    }
+  }
+
+  revalidatePath('/admin/clientes')
+  revalidatePath(`/admin/clientes/${clientId}`)
   return {}
 }

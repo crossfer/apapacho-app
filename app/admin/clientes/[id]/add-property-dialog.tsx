@@ -78,7 +78,7 @@ export function AddPropertyDialog({ clientId }: { clientId: string }) {
               <label className="text-sm font-medium text-[#6B4A34]">
                 {tForm('city')}
               </label>
-              <Select {...register('city')}>
+              <Select required {...register('city')}>
                 <option value="San Diego">{tCities('San Diego')}</option>
                 <option value="Los Angeles">{tCities('Los Angeles')}</option>
               </Select>

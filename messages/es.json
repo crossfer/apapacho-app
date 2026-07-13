@@ -71,6 +71,8 @@
     "clients": {
       "title": "Clientes",
       "newClient": "Nuevo cliente",
+      "editClient": "Editar cliente",
+      "edit": "Editar",
       "invite": "Invitar cliente",
       "searchPlaceholder": "Buscar por nombre o correo...",
       "empty": "Aún no hay clientes.",
@@ -80,7 +82,8 @@
         "email": "Correo",
         "phone": "Teléfono",
         "city": "Ciudad",
-        "properties": "Propiedades"
+        "properties": "Propiedades",
+        "actions": "Acciones"
       },
       "form": {
         "fullName": "Nombre completo",
@@ -89,7 +92,10 @@
         "city": "Ciudad",
         "submit": "Crear e invitar",
         "submitting": "Enviando invitación...",
+        "saveChanges": "Guardar cambios",
+        "saving": "Guardando...",
         "success": "Cliente creado. Se envió un correo de invitación.",
+        "editSuccess": "Cliente actualizado.",
         "cancel": "Cancelar"
       },
       "detail": {

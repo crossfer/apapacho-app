@@ -12,12 +12,14 @@ export function Modal({
   triggerLabel,
   triggerVariant,
   triggerClassName,
+  triggerIcon,
   title,
   children,
 }: {
   triggerLabel: string
   triggerVariant?: ButtonProps['variant']
   triggerClassName?: string
+  triggerIcon?: React.ReactNode
   title: string
   children: (close: () => void) => React.ReactNode
 }) {
@@ -32,6 +34,7 @@ export function Modal({
         className={cn('bg-[#B83E7A] text-white hover:bg-[#B83E7A]/90', triggerClassName)}
         onClick={() => ref.current?.showModal()}
       >
+        {triggerIcon}
         {triggerLabel}
       </Button>
       <dialog

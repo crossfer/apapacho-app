@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/table'
 import { SearchInput } from './search-input'
 import { NewClientDialog } from './new-client-dialog'
+import { EditClientDialog } from './edit-client-dialog'
 import type { City } from '@/types/database.types'
 
 export const revalidate = 0
@@ -37,21 +38,25 @@ export default async function ClientsPage({
   }
 
   const { data: clients, error } = await query
-  console.log('DEBUG clients:', JSON.stringify(clients), 'error:', error)
+
+  if (error) {
+    throw new Error(error.message)
+  }
 
   const clientIds = (clients ?? []).map((c) => c.id)
-  const propertiesByClient = new Map<string, City[]>()
+  const propertiesByClient = new Map<string, { id: string; city: City }[]>()
 
   if (clientIds.length > 0) {
     const { data: properties } = await supabase
       .from('properties')
-      .select('client_id, city')
+      .select('id, client_id, city, created_at')
       .in('client_id', clientIds)
+      .order('created_at', { ascending: true })
 
     for (const p of properties ?? []) {
-      if (!p.client_id) continue
+      if (!p.client_id || !p.city) continue
       const list = propertiesByClient.get(p.client_id) ?? []
-      if (p.city) list.push(p.city)
+      list.push({ id: p.id, city: p.city })
       propertiesByClient.set(p.client_id, list)
     }
   }
@@ -79,13 +84,16 @@ export default async function ClientsPage({
                 <TableHead>{t('columns.phone')}</TableHead>
                 <TableHead>{t('columns.city')}</TableHead>
                 <TableHead>{t('columns.properties')}</TableHead>
+                <TableHead className="text-right">{t('columns.actions')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {clients.map((client) => {
+                const properties = propertiesByClient.get(client.id) ?? []
                 const cities = Array.from(
-                  new Set(propertiesByClient.get(client.id) ?? []),
+                  new Set(properties.map((property) => property.city)),
                 )
+                const primaryProperty = properties[0]
                 return (
                   <TableRow key={client.id}>
                     <TableCell>
@@ -104,7 +112,14 @@ export default async function ClientsPage({
                         : '—'}
                     </TableCell>
                     <TableCell>
-                      {propertiesByClient.get(client.id)?.length ?? 0}
+                      {properties.length}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <EditClientDialog
+                        client={client}
+                        propertyId={primaryProperty?.id}
+                        city={primaryProperty?.city}
+                      />
                     </TableCell>
                   </TableRow>
                 )
