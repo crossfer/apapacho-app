@@ -58,7 +58,7 @@ export function EditPropertyDialog({
       title={t('editProperty')}
       triggerLabel={t('editProperty')}
       triggerVariant="ghost"
-      triggerClassName="h-auto px-2 py-1 text-xs text-[#B83E7A] hover:bg-[#B83E7A]/10"
+      triggerClassName="h-auto px-2 py-1 text-xs text-white"
     >
       {(close) => {
         async function onSubmit(values: FormValues) {

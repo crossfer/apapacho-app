@@ -47,11 +47,12 @@ export default async function ClientsPage({
   const propertiesByClient = new Map<string, { id: string; city: City }[]>()
 
   if (clientIds.length > 0) {
-    const { data: properties } = await supabase
+    const { data: properties, error: propError } = await supabase
       .from('properties')
       .select('id, client_id, city, created_at')
       .in('client_id', clientIds)
       .order('created_at', { ascending: true })
+    console.log('DEBUG properties:', JSON.stringify(properties), propError)
 
     for (const p of properties ?? []) {
       if (!p.client_id || !p.city) continue
