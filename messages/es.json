@@ -131,7 +131,48 @@
       "title": "Órdenes de servicio",
       "newOrder": "Nueva orden",
       "assignStaff": "Asignar operario",
-      "reassign": "Reasignar"
+      "reassign": "Reasignar",
+      "filterAll": "Todos los estatus",
+      "empty": "Aún no hay órdenes.",
+      "noResults": "No se encontraron órdenes con ese filtro.",
+      "columns": {
+        "client": "Cliente",
+        "property": "Propiedad",
+        "serviceType": "Tipo de servicio",
+        "status": "Estatus",
+        "scheduledDate": "Fecha programada",
+        "assignedStaff": "Operario asignado"
+      },
+      "form": {
+        "client": "Cliente",
+        "property": "Propiedad",
+        "selectClient": "Selecciona un cliente",
+        "selectProperty": "Selecciona una propiedad",
+        "serviceType": "Tipo de servicio",
+        "scheduledDate": "Fecha programada",
+        "notes": "Notas",
+        "assignedStaff": "Operario asignado (opcional)",
+        "unassigned": "Sin asignar",
+        "submit": "Crear orden",
+        "submitting": "Creando...",
+        "cancel": "Cancelar"
+      },
+      "detail": {
+        "back": "Volver a órdenes",
+        "status": "Estatus",
+        "changeStatus": "Cambiar estatus",
+        "client": "Cliente",
+        "property": "Propiedad",
+        "serviceType": "Tipo de servicio",
+        "scheduledDate": "Fecha programada",
+        "assignedStaff": "Operario asignado",
+        "notes": "Notas",
+        "updates": "Actualizaciones",
+        "noUpdates": "Sin actualizaciones registradas.",
+        "photos": "Fotos",
+        "noPhotos": "Sin fotos registradas.",
+        "locationDenied": "Ubicación no disponible"
+      }
     }
   },
   "staff": {

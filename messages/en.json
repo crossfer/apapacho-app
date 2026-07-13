@@ -131,7 +131,48 @@
       "title": "Service orders",
       "newOrder": "New order",
       "assignStaff": "Assign staff",
-      "reassign": "Reassign"
+      "reassign": "Reassign",
+      "filterAll": "All statuses",
+      "empty": "No orders yet.",
+      "noResults": "No orders match that filter.",
+      "columns": {
+        "client": "Client",
+        "property": "Property",
+        "serviceType": "Service type",
+        "status": "Status",
+        "scheduledDate": "Scheduled date",
+        "assignedStaff": "Assigned staff"
+      },
+      "form": {
+        "client": "Client",
+        "property": "Property",
+        "selectClient": "Select a client",
+        "selectProperty": "Select a property",
+        "serviceType": "Service type",
+        "scheduledDate": "Scheduled date",
+        "notes": "Notes",
+        "assignedStaff": "Assigned staff (optional)",
+        "unassigned": "Unassigned",
+        "submit": "Create order",
+        "submitting": "Creating...",
+        "cancel": "Cancel"
+      },
+      "detail": {
+        "back": "Back to orders",
+        "status": "Status",
+        "changeStatus": "Change status",
+        "client": "Client",
+        "property": "Property",
+        "serviceType": "Service type",
+        "scheduledDate": "Scheduled date",
+        "assignedStaff": "Assigned staff",
+        "notes": "Notes",
+        "updates": "Updates",
+        "noUpdates": "No updates on file.",
+        "photos": "Photos",
+        "noPhotos": "No photos on file.",
+        "locationDenied": "Location unavailable"
+      }
     }
   },
   "staff": {
