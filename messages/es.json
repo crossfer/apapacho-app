@@ -22,7 +22,13 @@
     "forgotPassword": "¿Olvidaste tu contraseña?",
     "resetPassword": "Restablecer contraseña",
     "sendResetLink": "Enviar enlace de recuperación",
-    "welcomeBack": "Bienvenido de nuevo"
+    "welcomeBack": "Bienvenido de nuevo",
+    "newPassword": "Nueva contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "updatePassword": "Actualizar contraseña",
+    "updatingPassword": "Actualizando...",
+    "updatePasswordTitle": "Crea tu nueva contraseña",
+    "passwordsDontMatch": "Las contraseñas no coinciden."
   },
   "roles": {
     "admin": "Administrador",

@@ -22,7 +22,13 @@
     "forgotPassword": "Forgot your password?",
     "resetPassword": "Reset password",
     "sendResetLink": "Send reset link",
-    "welcomeBack": "Welcome back"
+    "welcomeBack": "Welcome back",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "updatePassword": "Update password",
+    "updatingPassword": "Updating...",
+    "updatePasswordTitle": "Create your new password",
+    "passwordsDontMatch": "Passwords don't match."
   },
   "roles": {
     "admin": "Administrator",
