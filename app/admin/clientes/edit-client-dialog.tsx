@@ -29,7 +29,7 @@ export function EditClientDialog({
       title={t('editClient')}
       triggerLabel={t('edit')}
       triggerVariant="outline"
-      triggerClassName="h-8 border-[#B68A4C]/30 px-2 text-xs text-[#6B4A34] hover:bg-[#E9D8B4]/30"
+      triggerClassName="h-8 border-[#FFFFFF]/30 px-2 text-white text-white hover:bg-[#000000]/30"
       triggerIcon={<Pencil aria-hidden="true" />}
     >
       {(close) => (
