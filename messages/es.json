@@ -188,7 +188,29 @@
     "uploadPhoto": "Subir foto",
     "addNote": "Agregar nota",
     "locationRequired": "Se solicitará tu ubicación",
-    "locationDenied": "Ubicación no disponible"
+    "locationDenied": "Ubicación no disponible",
+    "empty": "No tienes órdenes asignadas en este momento.",
+    "detail": {
+      "back": "Volver",
+      "property": "Propiedad",
+      "address": "Dirección",
+      "serviceType": "Tipo de servicio",
+      "scheduledDate": "Fecha programada",
+      "client": "Cliente",
+      "updateStatus": "Actualizar estatus",
+      "newStatus": "Nuevo estatus",
+      "notes": "Notas",
+      "photos": "Fotos",
+      "capturingLocation": "Capturando ubicación...",
+      "uploadingPhotos": "Subiendo fotos...",
+      "submit": "Guardar actualización",
+      "submitting": "Guardando...",
+      "cancel": "Cancelar",
+      "updates": "Actualizaciones",
+      "noUpdates": "Aún no hay actualizaciones.",
+      "noPhotos": "Aún no hay fotos.",
+      "locationUnavailable": "Ubicación no disponible"
+    }
   },
   "client": {
     "myProperties": "Mis propiedades",

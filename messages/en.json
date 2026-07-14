@@ -188,7 +188,29 @@
     "uploadPhoto": "Upload photo",
     "addNote": "Add note",
     "locationRequired": "Your location will be requested",
-    "locationDenied": "Location unavailable"
+    "locationDenied": "Location unavailable",
+    "empty": "You have no assigned orders right now.",
+    "detail": {
+      "back": "Back",
+      "property": "Property",
+      "address": "Address",
+      "serviceType": "Service type",
+      "scheduledDate": "Scheduled date",
+      "client": "Client",
+      "updateStatus": "Update status",
+      "newStatus": "New status",
+      "notes": "Notes",
+      "photos": "Photos",
+      "capturingLocation": "Capturing location...",
+      "uploadingPhotos": "Uploading photos...",
+      "submit": "Save update",
+      "submitting": "Saving...",
+      "cancel": "Cancel",
+      "updates": "Updates",
+      "noUpdates": "No updates yet.",
+      "noPhotos": "No photos yet.",
+      "locationUnavailable": "Location unavailable"
+    }
   },
   "client": {
     "myProperties": "My properties",
