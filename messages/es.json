@@ -196,6 +196,26 @@
     "history": "Historial",
     "requestService": "Solicitar servicio",
     "performedBy": "Realizado por",
-    "at": "a las"
+    "at": "a las",
+    "empty": "No tienes servicios activos en este momento.",
+    "historyEmpty": "Aún no hay servicios en tu historial.",
+    "columns": {
+      "serviceType": "Tipo de servicio",
+      "property": "Propiedad",
+      "date": "Fecha",
+      "status": "Estatus"
+    },
+    "detail": {
+      "back": "Volver",
+      "property": "Propiedad",
+      "address": "Dirección",
+      "scheduledDate": "Fecha programada",
+      "notes": "Notas",
+      "updates": "Actualizaciones",
+      "noUpdates": "Aún no hay actualizaciones.",
+      "photos": "Fotos",
+      "noPhotos": "Aún no hay fotos.",
+      "locationUnavailable": "Ubicación no disponible"
+    }
   }
 }

@@ -196,6 +196,26 @@
     "history": "History",
     "requestService": "Request service",
     "performedBy": "Performed by",
-    "at": "at"
+    "at": "at",
+    "empty": "You have no active services right now.",
+    "historyEmpty": "No services in your history yet.",
+    "columns": {
+      "serviceType": "Service type",
+      "property": "Property",
+      "date": "Date",
+      "status": "Status"
+    },
+    "detail": {
+      "back": "Back",
+      "property": "Property",
+      "address": "Address",
+      "scheduledDate": "Scheduled date",
+      "notes": "Notes",
+      "updates": "Updates",
+      "noUpdates": "No updates yet.",
+      "photos": "Photos",
+      "noPhotos": "No photos yet.",
+      "locationUnavailable": "Location unavailable"
+    }
   }
 }

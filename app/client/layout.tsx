@@ -30,7 +30,7 @@ export default async function ClientLayout({
             {APP_NAME}
           </Link>
           <nav className="flex items-center gap-6 text-sm text-[#6B4A34]">
-            <Link href="/client/servicios" className="hover:text-[#B83E7A]">
+            <Link href="/client/dashboard" className="hover:text-[#B83E7A]">
               {t('activeServices')}
             </Link>
             <Link href="/client/historial" className="hover:text-[#B83E7A]">
