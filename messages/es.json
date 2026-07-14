@@ -201,7 +201,7 @@
       "newStatus": "Nuevo estatus",
       "notes": "Notas",
       "photos": "Fotos",
-      "capturingLocation": "Capturando ubicación...",
+      "capturingLocation": "Detectando ubicación...",
       "uploadingPhotos": "Subiendo fotos...",
       "submit": "Guardar actualización",
       "submitting": "Guardando...",

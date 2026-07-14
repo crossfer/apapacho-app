@@ -72,6 +72,27 @@ export default async function StaffOrderDetailPage({
     timeStyle: 'short',
   })
 
+  // "Jul 13, 2026 · 10:34 AM" — built from separate date/time formatters
+  // (rather than dateStyle+timeStyle's built-in comma) so the middle-dot
+  // separator is exact, while staying locale-aware per-part.
+  const updateDateFormatter = new Intl.DateTimeFormat(locale, {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  })
+  const updateTimeFormatter = new Intl.DateTimeFormat(locale, {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  })
+  function formatUpdateTimestamp(date: Date) {
+    return `${updateDateFormatter.format(date)} · ${updateTimeFormatter.format(date)}`
+  }
+
+  function formatCoordinate(value: number, positive: string, negative: string) {
+    return `${Math.abs(value).toFixed(4)}° ${value >= 0 ? positive : negative}`
+  }
+
   return (
     <div className="flex flex-col gap-6">
       <div>
@@ -145,7 +166,7 @@ export default async function StaffOrderDetailPage({
                       {tStatus(update.status)}
                     </span>
                     <span className="text-xs text-[#6B4A34]/50">
-                      {dateFormatter.format(
+                      {formatUpdateTimestamp(
                         new Date(update.timestamp_device ?? update.created_at),
                       )}
                     </span>
@@ -154,9 +175,19 @@ export default async function StaffOrderDetailPage({
                     <p className="mt-1 text-sm text-[#6B4A34]">{update.note}</p>
                   )}
                   <p className="mt-1 text-xs text-[#6B4A34]/50">
-                    {hasLocation
-                      ? `${update.latitude!.toFixed(5)}, ${update.longitude!.toFixed(5)}`
-                      : t('detail.locationUnavailable')}
+                    {hasLocation ? (
+                      <a
+                        href={`https://maps.google.com/?q=${update.latitude},${update.longitude}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hover:text-[#B83E7A] hover:underline"
+                      >
+                        📍 {formatCoordinate(update.latitude!, 'N', 'S')},{' '}
+                        {formatCoordinate(update.longitude!, 'E', 'W')}
+                      </a>
+                    ) : (
+                      <span>📍 {t('detail.locationUnavailable')}</span>
+                    )}
                   </p>
                 </li>
               )

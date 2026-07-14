@@ -201,7 +201,7 @@
       "newStatus": "New status",
       "notes": "Notes",
       "photos": "Photos",
-      "capturingLocation": "Capturing location...",
+      "capturingLocation": "Detecting location...",
       "uploadingPhotos": "Uploading photos...",
       "submit": "Save update",
       "submitting": "Saving...",
