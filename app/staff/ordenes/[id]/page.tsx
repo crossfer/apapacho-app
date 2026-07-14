@@ -68,6 +68,7 @@ export default async function StaffOrderDetailPage({
   }
 
   const dateFormatter = new Intl.DateTimeFormat(locale, {
+    timeZone: 'America/Los_Angeles',
     dateStyle: 'medium',
     timeStyle: 'short',
   })

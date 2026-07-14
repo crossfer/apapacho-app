@@ -1,0 +1,58 @@
+/*
+ * Brand overrides for FullCalendar's default blue theme.
+ * FullCalendar v6 themes almost entirely through CSS custom properties, so
+ * this scopes them to a wrapper class rather than fighting per-element
+ * specificity.
+ */
+.apapacho-calendar {
+  --fc-border-color: rgba(182, 138, 76, 0.25); /* dorado, faint */
+  --fc-neutral-bg-color: rgba(233, 216, 180, 0.25); /* arena */
+  --fc-page-bg-color: #ffffff;
+  --fc-today-bg-color: rgba(184, 62, 122, 0.08); /* bugambilia, faint */
+
+  --fc-button-bg-color: #4f6d5a; /* agave */
+  --fc-button-border-color: #4f6d5a;
+  --fc-button-hover-bg-color: #3e5748;
+  --fc-button-hover-border-color: #3e5748;
+  --fc-button-active-bg-color: #b83e7a; /* bugambilia */
+  --fc-button-active-border-color: #b83e7a;
+
+  --fc-event-text-color: #ffffff;
+  --fc-event-border-color: transparent;
+
+  --fc-list-event-hover-bg-color: rgba(233, 216, 180, 0.35);
+
+  font-family: inherit;
+}
+
+.apapacho-calendar .fc {
+  color: #6b4a34; /* nogal */
+}
+
+.apapacho-calendar .fc-toolbar-title {
+  color: #6b4a34;
+  font-weight: 600;
+}
+
+.apapacho-calendar .fc-col-header-cell-cushion,
+.apapacho-calendar .fc-daygrid-day-number,
+.apapacho-calendar .fc-timegrid-slot-label-cushion {
+  color: #6b4a34;
+}
+
+.apapacho-calendar .fc-button {
+  text-transform: capitalize;
+  box-shadow: none !important;
+}
+
+.apapacho-calendar .fc-day-today .fc-daygrid-day-number {
+  font-weight: 700;
+  color: #b83e7a;
+}
+
+.apapacho-calendar .fc-event {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 1px 4px;
+  font-size: 0.75rem;
+}
