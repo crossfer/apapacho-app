@@ -71,3 +71,43 @@ export async function updateOrderStatusAction(
   revalidatePath('/admin/ordenes')
   return {}
 }
+
+const updatePricingSchema = z.object({
+  orderId: z.string().uuid(),
+  clientMaterialsCost: z.number().min(0),
+  clientServiceCost: z.number().min(0),
+  staffPayment: z.number().min(0),
+  actualMaterialsCost: z.number().min(0),
+})
+
+export async function updateOrderPricingAction(
+  input: z.infer<typeof updatePricingSchema>,
+) {
+  await requireAdmin()
+
+  const parsed = updatePricingSchema.safeParse(input)
+  if (!parsed.success) {
+    return { error: 'Datos inválidos.' }
+  }
+  const { orderId, clientMaterialsCost, clientServiceCost, staffPayment, actualMaterialsCost } =
+    parsed.data
+
+  const supabase = createClient()
+  const { error } = await supabase
+    .from('service_orders')
+    .update({
+      client_materials_cost: clientMaterialsCost,
+      client_service_cost: clientServiceCost,
+      staff_payment: staffPayment,
+      actual_materials_cost: actualMaterialsCost,
+    })
+    .eq('id', orderId)
+
+  if (error) {
+    return { error: 'No se pudieron guardar los montos.' }
+  }
+
+  revalidatePath(`/admin/ordenes/${orderId}`)
+  revalidatePath('/admin/dashboard')
+  return {}
+}

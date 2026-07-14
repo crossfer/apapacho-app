@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { getLocale, getTranslations } from 'next-intl/server'
 import { createClient } from '@/lib/supabase/server'
 import { StatusSelect } from './status-select'
+import { FinancialsCard } from './financials-card'
 import { PHOTOS_BUCKET } from '@/lib/constants'
 
 export const revalidate = 0
@@ -22,7 +23,7 @@ export default async function OrderDetailPage({
   const { data: order } = await supabase
     .from('service_orders')
     .select(
-      'id, property_id, staff_id, service_type, status, scheduled_at, notes, created_at',
+      'id, property_id, staff_id, service_type, status, scheduled_at, notes, created_at, client_materials_cost, client_service_cost, staff_payment, actual_materials_cost',
     )
     .eq('id', params.id)
     .single()
@@ -168,6 +169,14 @@ export default async function OrderDetailPage({
           </div>
         )}
       </div>
+
+      <FinancialsCard
+        orderId={order.id}
+        initialClientMaterialsCost={order.client_materials_cost}
+        initialClientServiceCost={order.client_service_cost}
+        initialStaffPayment={order.staff_payment}
+        initialActualMaterialsCost={order.actual_materials_cost}
+      />
 
       <div className="rounded-2xl bg-white p-6 shadow-sm">
         <h2 className="mb-4 text-lg font-semibold text-[#6B4A34]">{t('updates')}</h2>

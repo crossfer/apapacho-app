@@ -107,6 +107,10 @@ export interface Database {
           scheduled_at: string | null
           completed_at: string | null
           notes: string | null
+          client_materials_cost: number
+          client_service_cost: number
+          staff_payment: number
+          actual_materials_cost: number
           created_at: string
         }
         Insert: {
@@ -119,6 +123,10 @@ export interface Database {
           scheduled_at?: string | null
           completed_at?: string | null
           notes?: string | null
+          client_materials_cost?: number
+          client_service_cost?: number
+          staff_payment?: number
+          actual_materials_cost?: number
           created_at?: string
         }
         Update: Partial<Database['public']['Tables']['service_orders']['Insert']>

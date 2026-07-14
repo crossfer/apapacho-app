@@ -69,10 +69,26 @@
     },
     "dashboard": {
       "title": "Today's overview",
-      "todayOrders": "Today's orders",
-      "inProgress": "In progress",
-      "completed": "Completed",
-      "unassigned": "Pending assignment"
+      "activeOrdersToday": "Active orders today",
+      "completedThisMonth": "Completed this month",
+      "totalClients": "Total clients",
+      "revenueThisMonth": "Revenue this month",
+      "todaysSchedule": "Today's schedule",
+      "noOrdersToday": "No orders scheduled for today.",
+      "scheduleColumns": {
+        "time": "Time",
+        "property": "Property",
+        "serviceType": "Service type",
+        "staff": "Staff",
+        "status": "Status"
+      },
+      "unassigned": "Unassigned",
+      "financialsThisMonth": "Financials this month",
+      "revenue": "Revenue",
+      "expenses": "Expenses",
+      "netProfit": "Net profit",
+      "recentActivity": "Recent activity",
+      "noActivity": "No recent activity."
     },
     "clients": {
       "title": "Clients",
@@ -230,7 +246,20 @@
         "noUpdates": "No updates on file.",
         "photos": "Photos",
         "noPhotos": "No photos on file.",
-        "locationDenied": "Location unavailable"
+        "locationDenied": "Location unavailable",
+        "financials": {
+          "title": "Financials",
+          "clientMaterialsCost": "Materials cost (client)",
+          "clientServiceCost": "Service cost (client)",
+          "staffPayment": "Staff payment",
+          "actualMaterialsCost": "Actual materials cost",
+          "totalCharged": "Total charged to client",
+          "totalExpenses": "Total expenses",
+          "netProfit": "Net profit",
+          "save": "Save amounts",
+          "saving": "Saving...",
+          "saved": "Amounts saved."
+        }
       }
     }
   },
@@ -290,7 +319,11 @@
       "noUpdates": "No updates yet.",
       "photos": "Photos",
       "noPhotos": "No photos yet.",
-      "locationUnavailable": "Location unavailable"
+      "locationUnavailable": "Location unavailable",
+      "serviceSummary": "Service summary",
+      "materials": "Materials",
+      "service": "Service",
+      "total": "Total"
     }
   }
 }

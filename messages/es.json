@@ -69,10 +69,26 @@
     },
     "dashboard": {
       "title": "Resumen del día",
-      "todayOrders": "Órdenes de hoy",
-      "inProgress": "En progreso",
-      "completed": "Completadas",
-      "unassigned": "Pendientes de asignar"
+      "activeOrdersToday": "Órdenes activas hoy",
+      "completedThisMonth": "Completadas este mes",
+      "totalClients": "Total de clientes",
+      "revenueThisMonth": "Ingresos este mes",
+      "todaysSchedule": "Agenda de hoy",
+      "noOrdersToday": "No hay órdenes programadas para hoy.",
+      "scheduleColumns": {
+        "time": "Hora",
+        "property": "Propiedad",
+        "serviceType": "Tipo de servicio",
+        "staff": "Operario",
+        "status": "Estatus"
+      },
+      "unassigned": "Sin asignar",
+      "financialsThisMonth": "Finanzas del mes",
+      "revenue": "Ingresos",
+      "expenses": "Gastos",
+      "netProfit": "Ganancia neta",
+      "recentActivity": "Actividad reciente",
+      "noActivity": "Sin actividad reciente."
     },
     "clients": {
       "title": "Clientes",
@@ -230,7 +246,20 @@
         "noUpdates": "Sin actualizaciones registradas.",
         "photos": "Fotos",
         "noPhotos": "Sin fotos registradas.",
-        "locationDenied": "Ubicación no disponible"
+        "locationDenied": "Ubicación no disponible",
+        "financials": {
+          "title": "Finanzas",
+          "clientMaterialsCost": "Costo de materiales (cliente)",
+          "clientServiceCost": "Costo de servicio (cliente)",
+          "staffPayment": "Pago al operario",
+          "actualMaterialsCost": "Costo real de materiales",
+          "totalCharged": "Total cobrado al cliente",
+          "totalExpenses": "Total de gastos",
+          "netProfit": "Ganancia neta",
+          "save": "Guardar montos",
+          "saving": "Guardando...",
+          "saved": "Montos guardados."
+        }
       }
     }
   },
@@ -290,7 +319,11 @@
       "noUpdates": "Aún no hay actualizaciones.",
       "photos": "Fotos",
       "noPhotos": "Aún no hay fotos.",
-      "locationUnavailable": "Ubicación no disponible"
+      "locationUnavailable": "Ubicación no disponible",
+      "serviceSummary": "Resumen del servicio",
+      "materials": "Materiales",
+      "service": "Servicio",
+      "total": "Total"
     }
   }
 }

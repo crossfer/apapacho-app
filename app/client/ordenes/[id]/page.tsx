@@ -5,6 +5,7 @@ import { getLocale, getTranslations } from 'next-intl/server'
 import { createClient, createServiceRoleClient } from '@/lib/supabase/server'
 import { StatusBadge } from '@/components/status-badge'
 import { PHOTOS_BUCKET } from '@/lib/constants'
+import { formatUSD } from '@/lib/utils'
 
 export const revalidate = 0
 
@@ -22,9 +23,14 @@ export default async function ClientOrderDetailPage({
 
   // RLS ("orders: read") scopes this to the client's own orders — a row
   // that isn't theirs simply won't come back, not an access error.
+  // Only the two client-facing cost columns are selected — staff_payment and
+  // actual_materials_cost are never sent to the client, not just hidden in
+  // the UI.
   const { data: order } = await supabase
     .from('service_orders')
-    .select('id, property_id, service_type, status, scheduled_at, notes')
+    .select(
+      'id, property_id, service_type, status, scheduled_at, notes, client_materials_cost, client_service_cost',
+    )
     .eq('id', params.id)
     .single()
 
@@ -139,6 +145,30 @@ export default async function ClientOrderDetailPage({
           </div>
         )}
       </div>
+
+      {(order.client_materials_cost > 0 || order.client_service_cost > 0) && (
+        <div className="rounded-2xl bg-white p-6 shadow-sm">
+          <h2 className="mb-4 text-lg font-semibold text-[#6B4A34]">
+            {t('detail.serviceSummary')}
+          </h2>
+          <div className="flex flex-col gap-2 text-sm text-[#6B4A34]">
+            <div className="flex items-center justify-between">
+              <span className="text-[#6B4A34]/70">{t('detail.materials')}</span>
+              <span>{formatUSD(order.client_materials_cost)}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-[#6B4A34]/70">{t('detail.service')}</span>
+              <span>{formatUSD(order.client_service_cost)}</span>
+            </div>
+            <div className="mt-2 flex items-center justify-between border-t border-[#B68A4C]/10 pt-2 font-semibold">
+              <span>{t('detail.total')}</span>
+              <span>
+                {formatUSD(order.client_materials_cost + order.client_service_cost)}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="rounded-2xl bg-white p-6 shadow-sm">
         <h2 className="mb-4 text-lg font-semibold text-[#6B4A34]">
