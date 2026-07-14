@@ -131,7 +131,60 @@
       "newProvider": "New provider",
       "internal": "Internal",
       "external": "External",
-      "specialties": "Specialties"
+      "specialties": "Specialties",
+      "empty": "No providers yet.",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "specialty": "Role / Specialty",
+        "activeOrders": "Active orders"
+      },
+      "form": {
+        "fullName": "Full name",
+        "email": "Email",
+        "phone": "Phone",
+        "specialty": "Specialty",
+        "submit": "Create & invite",
+        "submitting": "Sending invite...",
+        "success": "Provider created. An invite email was sent.",
+        "cancel": "Cancel"
+      },
+      "detail": {
+        "back": "Back to providers",
+        "orders": "Assigned orders",
+        "noOrders": "No assigned orders.",
+        "columns": {
+          "serviceType": "Service type",
+          "status": "Status",
+          "scheduledDate": "Scheduled date"
+        }
+      }
+    },
+    "properties": {
+      "title": "Properties",
+      "searchPlaceholder": "Search by name or address...",
+      "empty": "No properties yet.",
+      "noResults": "No properties found.",
+      "columns": {
+        "name": "Name",
+        "address": "Address",
+        "city": "City",
+        "client": "Client",
+        "activeOrders": "Active orders"
+      },
+      "detail": {
+        "back": "Back to properties",
+        "untitled": "Untitled property",
+        "orders": "Service orders",
+        "noOrders": "No orders on file.",
+        "columns": {
+          "serviceType": "Service type",
+          "status": "Status",
+          "scheduledDate": "Scheduled date",
+          "assignedStaff": "Assigned staff"
+        }
+      }
     },
     "orders": {
       "title": "Service orders",

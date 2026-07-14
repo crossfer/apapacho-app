@@ -131,7 +131,60 @@
       "newProvider": "Nuevo proveedor",
       "internal": "Interno",
       "external": "Externo",
-      "specialties": "Especialidades"
+      "specialties": "Especialidades",
+      "empty": "Aún no hay proveedores.",
+      "columns": {
+        "name": "Nombre",
+        "email": "Correo",
+        "phone": "Teléfono",
+        "specialty": "Rol / Especialidad",
+        "activeOrders": "Órdenes activas"
+      },
+      "form": {
+        "fullName": "Nombre completo",
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "specialty": "Especialidad",
+        "submit": "Crear e invitar",
+        "submitting": "Enviando invitación...",
+        "success": "Proveedor creado. Se envió un correo de invitación.",
+        "cancel": "Cancelar"
+      },
+      "detail": {
+        "back": "Volver a proveedores",
+        "orders": "Órdenes asignadas",
+        "noOrders": "Sin órdenes asignadas.",
+        "columns": {
+          "serviceType": "Tipo de servicio",
+          "status": "Estatus",
+          "scheduledDate": "Fecha programada"
+        }
+      }
+    },
+    "properties": {
+      "title": "Propiedades",
+      "searchPlaceholder": "Buscar por nombre o dirección...",
+      "empty": "Aún no hay propiedades.",
+      "noResults": "No se encontraron propiedades.",
+      "columns": {
+        "name": "Nombre",
+        "address": "Dirección",
+        "city": "Ciudad",
+        "client": "Cliente",
+        "activeOrders": "Órdenes activas"
+      },
+      "detail": {
+        "back": "Volver a propiedades",
+        "untitled": "Propiedad sin nombre",
+        "orders": "Órdenes de servicio",
+        "noOrders": "Sin órdenes registradas.",
+        "columns": {
+          "serviceType": "Tipo de servicio",
+          "status": "Estatus",
+          "scheduledDate": "Fecha programada",
+          "assignedStaff": "Operario asignado"
+        }
+      }
     },
     "orders": {
       "title": "Órdenes de servicio",

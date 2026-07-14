@@ -45,10 +45,15 @@ export function NewOrderDialog({
   clients,
   properties,
   staff,
+  defaultClientId,
+  defaultPropertyId,
 }: {
   clients: ClientOption[]
   properties: PropertyOption[]
   staff: StaffOption[]
+  /** Pre-fills the client/property selects — used from the property detail page. */
+  defaultClientId?: string
+  defaultPropertyId?: string
 }) {
   const t = useTranslations('admin.orders')
   const tForm = useTranslations('admin.orders.form')
@@ -65,7 +70,11 @@ export function NewOrderDialog({
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
-    defaultValues: { serviceType: SERVICE_TYPES[0] },
+    defaultValues: {
+      serviceType: SERVICE_TYPES[0],
+      clientId: defaultClientId,
+      propertyId: defaultPropertyId,
+    },
   })
 
   const selectedClientId = watch('clientId')
