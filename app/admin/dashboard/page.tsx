@@ -27,12 +27,12 @@ export default async function AdminDashboardPage() {
   const { start: monthStart, end: monthEnd } = getMonthRange()
 
   const [
-    { count: activeOrdersTodayCount },
-    { count: completedThisMonthCount },
-    { count: totalClientsCount },
-    { data: completedThisMonthOrders },
-    { data: todaysOrders },
-    { data: recentUpdates },
+    activeOrdersTodayResult,
+    completedThisMonthResult,
+    totalClientsResult,
+    completedThisMonthOrdersResult,
+    todaysOrdersResult,
+    recentUpdatesResult,
   ] = await Promise.all([
     supabase
       .from('service_orders')
@@ -69,6 +69,30 @@ export default async function AdminDashboardPage() {
       .order('created_at', { ascending: false })
       .limit(5),
   ])
+
+  // These silently defaulted to null/0 on any error before (e.g. querying a
+  // column that doesn't exist yet because a migration hasn't been run) —
+  // financials would just render as $0.00 with no indication anything was
+  // wrong. Surface it instead.
+  for (const result of [
+    activeOrdersTodayResult,
+    completedThisMonthResult,
+    totalClientsResult,
+    completedThisMonthOrdersResult,
+    todaysOrdersResult,
+    recentUpdatesResult,
+  ]) {
+    if (result.error) {
+      throw new Error(result.error.message)
+    }
+  }
+
+  const { count: activeOrdersTodayCount } = activeOrdersTodayResult
+  const { count: completedThisMonthCount } = completedThisMonthResult
+  const { count: totalClientsCount } = totalClientsResult
+  const { data: completedThisMonthOrders } = completedThisMonthOrdersResult
+  const { data: todaysOrders } = todaysOrdersResult
+  const { data: recentUpdates } = recentUpdatesResult
 
   const revenueThisMonth = (completedThisMonthOrders ?? []).reduce(
     (sum, o) => sum + o.client_materials_cost + o.client_service_cost,
