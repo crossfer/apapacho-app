@@ -228,6 +228,13 @@
         "notes": "Notas",
         "assignedStaff": "Operario asignado (opcional)",
         "unassigned": "Sin asignar",
+        "financials": {
+          "title": "Finanzas",
+          "clientMaterialsCost": "Materiales (cobrado al cliente)",
+          "clientServiceCost": "Servicio (cobrado al cliente)",
+          "staffPayment": "Pago al operario",
+          "actualMaterialsCost": "Materiales (costo real)"
+        },
         "submit": "Crear orden",
         "submitting": "Creando...",
         "cancel": "Cancelar"

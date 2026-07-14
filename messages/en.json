@@ -228,6 +228,13 @@
         "notes": "Notes",
         "assignedStaff": "Assigned staff (optional)",
         "unassigned": "Unassigned",
+        "financials": {
+          "title": "Financials",
+          "clientMaterialsCost": "Materials (charged to client)",
+          "clientServiceCost": "Service (charged to client)",
+          "staffPayment": "Staff payment",
+          "actualMaterialsCost": "Materials (actual cost)"
+        },
         "submit": "Create order",
         "submitting": "Creating...",
         "cancel": "Cancel"

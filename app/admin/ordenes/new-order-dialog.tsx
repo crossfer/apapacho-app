@@ -38,6 +38,10 @@ const schema = z.object({
   scheduledAt: z.string().trim().optional(),
   notes: z.string().trim().optional(),
   staffId: z.string().optional(),
+  clientMaterialsCost: z.string().trim().optional(),
+  clientServiceCost: z.string().trim().optional(),
+  staffPayment: z.string().trim().optional(),
+  actualMaterialsCost: z.string().trim().optional(),
 })
 type FormValues = z.infer<typeof schema>
 
@@ -74,6 +78,10 @@ export function NewOrderDialog({
       serviceType: SERVICE_TYPES[0],
       clientId: defaultClientId,
       propertyId: defaultPropertyId,
+      clientMaterialsCost: '0',
+      clientServiceCost: '0',
+      staffPayment: '0',
+      actualMaterialsCost: '0',
     },
   })
 
@@ -94,6 +102,10 @@ export function NewOrderDialog({
             scheduledAt: values.scheduledAt,
             notes: values.notes,
             staffId: values.staffId || undefined,
+            clientMaterialsCost: Number(values.clientMaterialsCost) || 0,
+            clientServiceCost: Number(values.clientServiceCost) || 0,
+            staffPayment: Number(values.staffPayment) || 0,
+            actualMaterialsCost: Number(values.actualMaterialsCost) || 0,
           })
           if (result?.error) {
             setServerError(result.error)
@@ -189,6 +201,62 @@ export function NewOrderDialog({
                   </option>
                 ))}
               </Select>
+            </div>
+
+            <div className="mt-2 flex flex-col gap-3 border-t border-[#B68A4C]/15 pt-4">
+              <h3 className="text-sm font-semibold text-[#6B4A34]">
+                {tForm('financials.title')}
+              </h3>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="flex flex-col gap-1">
+                  <label className="text-sm font-medium text-[#6B4A34]">
+                    {tForm('financials.clientMaterialsCost')}
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    className="w-full rounded-md border border-[#B68A4C]/40 px-3 py-2 text-sm text-[#6B4A34] outline-none focus:border-[#B83E7A]"
+                    {...register('clientMaterialsCost')}
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="text-sm font-medium text-[#6B4A34]">
+                    {tForm('financials.clientServiceCost')}
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    className="w-full rounded-md border border-[#B68A4C]/40 px-3 py-2 text-sm text-[#6B4A34] outline-none focus:border-[#B83E7A]"
+                    {...register('clientServiceCost')}
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="text-sm font-medium text-[#6B4A34]">
+                    {tForm('financials.staffPayment')}
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    className="w-full rounded-md border border-[#B68A4C]/40 px-3 py-2 text-sm text-[#6B4A34] outline-none focus:border-[#B83E7A]"
+                    {...register('staffPayment')}
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="text-sm font-medium text-[#6B4A34]">
+                    {tForm('financials.actualMaterialsCost')}
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    className="w-full rounded-md border border-[#B68A4C]/40 px-3 py-2 text-sm text-[#6B4A34] outline-none focus:border-[#B83E7A]"
+                    {...register('actualMaterialsCost')}
+                  />
+                </div>
+              </div>
             </div>
 
             {serverError && <p className="text-sm text-red-600">{serverError}</p>}

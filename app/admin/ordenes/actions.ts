@@ -13,6 +13,10 @@ const createSchema = z.object({
   scheduledAt: z.string().trim().optional(),
   notes: z.string().trim().optional(),
   staffId: z.string().uuid().optional(),
+  clientMaterialsCost: z.number().min(0).optional(),
+  clientServiceCost: z.number().min(0).optional(),
+  staffPayment: z.number().min(0).optional(),
+  actualMaterialsCost: z.number().min(0).optional(),
 })
 
 export async function createOrderAction(input: z.infer<typeof createSchema>) {
@@ -22,7 +26,17 @@ export async function createOrderAction(input: z.infer<typeof createSchema>) {
   if (!parsed.success) {
     return { error: 'Datos inválidos.' }
   }
-  const { propertyId, serviceType, scheduledAt, notes, staffId } = parsed.data
+  const {
+    propertyId,
+    serviceType,
+    scheduledAt,
+    notes,
+    staffId,
+    clientMaterialsCost,
+    clientServiceCost,
+    staffPayment,
+    actualMaterialsCost,
+  } = parsed.data
 
   const supabase = createClient()
   const { error } = await supabase.from('service_orders').insert({
@@ -31,6 +45,10 @@ export async function createOrderAction(input: z.infer<typeof createSchema>) {
     scheduled_at: scheduledAt ? new Date(scheduledAt).toISOString() : null,
     notes: notes || null,
     staff_id: staffId || null,
+    client_materials_cost: clientMaterialsCost ?? 0,
+    client_service_cost: clientServiceCost ?? 0,
+    staff_payment: staffPayment ?? 0,
+    actual_materials_cost: actualMaterialsCost ?? 0,
   })
 
   if (error) {
