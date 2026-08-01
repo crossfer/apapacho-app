@@ -22,7 +22,7 @@ export default async function StaffLayout({
         <span className="font-semibold text-[#B68A4C]">{APP_NAME}</span>
         <SignOutButton className="text-sm text-white/80" />
       </header>
-      <main className="flex-1 p-4">{children}</main>
+      <main className="min-w-0 flex-1 p-4">{children}</main>
     </div>
   )
 }

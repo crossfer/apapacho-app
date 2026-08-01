@@ -46,7 +46,7 @@ export default async function ClientLayout({
         </nav>
         <SignOutButton className="mt-4 rounded-md px-3 py-2 text-left text-sm text-white/70 hover:bg-white/10" />
       </aside>
-      <main className="flex-1 p-6 pb-24 lg:pb-6">{children}</main>
+      <main className="min-w-0 flex-1 p-6 pb-24 lg:pb-6">{children}</main>
       <MobileTabBar
         items={NAV.map((item) => ({ href: item.href, label: t(item.key), icon: item.icon }))}
       />
