@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/table'
 import { StatusBadge } from '@/components/status-badge'
 import { NewOrderDialog } from '../../ordenes/new-order-dialog'
+import { formatCompactDate } from '@/lib/utils'
 
 export const revalidate = 0
 
@@ -62,11 +63,6 @@ export default async function PropertyDetailPage({
     .select('id, full_name')
     .eq('role', 'staff')
     .order('full_name', { ascending: true })
-
-  const dateFormatter = new Intl.DateTimeFormat(locale, {
-    dateStyle: 'medium',
-    timeStyle: 'short',
-  })
 
   return (
     <div className="flex flex-col gap-8">
@@ -124,7 +120,7 @@ export default async function PropertyDetailPage({
                   : undefined
                 return (
                   <TableRow key={order.id}>
-                    <TableCell>
+                    <TableCell className="max-w-[120px] truncate">
                       <Link
                         href={`/admin/ordenes/${order.id}`}
                         className="font-medium hover:text-[#B83E7A]"
@@ -135,9 +131,9 @@ export default async function PropertyDetailPage({
                     <TableCell>
                       <StatusBadge status={order.status} label={tStatus(order.status)} />
                     </TableCell>
-                    <TableCell>
+                    <TableCell className="whitespace-nowrap">
                       {order.scheduled_at
-                        ? dateFormatter.format(new Date(order.scheduled_at))
+                        ? formatCompactDate(order.scheduled_at, locale)
                         : '—'}
                     </TableCell>
                     <TableCell>{staffMember?.full_name ?? '—'}</TableCell>

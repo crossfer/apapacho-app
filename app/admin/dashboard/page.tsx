@@ -191,7 +191,7 @@ export default async function AdminDashboardPage() {
                   : undefined
                 return (
                   <TableRow key={order.id}>
-                    <TableCell>
+                    <TableCell className="whitespace-nowrap">
                       {order.scheduled_at
                         ? timeFormatter.format(new Date(order.scheduled_at))
                         : '—'}
@@ -204,7 +204,9 @@ export default async function AdminDashboardPage() {
                         {property?.name ?? '—'}
                       </Link>
                     </TableCell>
-                    <TableCell>{tServiceTypes(order.service_type)}</TableCell>
+                    <TableCell className="max-w-[120px] truncate">
+                      {tServiceTypes(order.service_type)}
+                    </TableCell>
                     <TableCell>{staffMember?.full_name ?? t('unassigned')}</TableCell>
                     <TableCell>
                       <StatusBadge status={order.status} label={tStatus(order.status)} />

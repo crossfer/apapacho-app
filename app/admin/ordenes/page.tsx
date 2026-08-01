@@ -12,6 +12,7 @@ import {
 import { StatusFilter } from './status-filter'
 import { NewOrderDialog } from './new-order-dialog'
 import { SERVICE_STATUSES } from '@/lib/constants'
+import { formatCompactDate } from '@/lib/utils'
 import type { ServiceStatus } from '@/types/database.types'
 
 export const revalidate = 0
@@ -91,11 +92,6 @@ export default async function OrdersPage({
     .eq('role', 'staff')
     .order('full_name', { ascending: true })
 
-  const dateFormatter = new Intl.DateTimeFormat(locale, {
-    dateStyle: 'medium',
-    timeStyle: 'short',
-  })
-
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
@@ -148,11 +144,13 @@ export default async function OrdersPage({
                       </Link>
                     </TableCell>
                     <TableCell>{property?.name ?? '—'}</TableCell>
-                    <TableCell>{tServiceTypes(order.service_type)}</TableCell>
+                    <TableCell className="max-w-[120px] truncate">
+                      {tServiceTypes(order.service_type)}
+                    </TableCell>
                     <TableCell>{tStatus(order.status)}</TableCell>
-                    <TableCell>
+                    <TableCell className="whitespace-nowrap">
                       {order.scheduled_at
-                        ? dateFormatter.format(new Date(order.scheduled_at))
+                        ? formatCompactDate(order.scheduled_at, locale)
                         : '—'}
                     </TableCell>
                     <TableCell>{staffMember?.full_name ?? '—'}</TableCell>

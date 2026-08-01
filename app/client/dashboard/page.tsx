@@ -11,6 +11,7 @@ import {
   TableHead,
   TableCell,
 } from '@/components/ui/table'
+import { formatCompactDate } from '@/lib/utils'
 
 export const revalidate = 0
 
@@ -67,11 +68,6 @@ export default async function ClientDashboardPage() {
     : { data: [] }
   const propertyById = new Map((properties ?? []).map((p) => [p.id, p]))
 
-  const dateFormatter = new Intl.DateTimeFormat(locale, {
-    dateStyle: 'medium',
-    timeStyle: 'short',
-  })
-
   return (
     <div className="flex flex-col gap-8">
       <h1 className="text-2xl font-semibold text-[#6B4A34]">{t('title')}</h1>
@@ -103,7 +99,7 @@ export default async function ClientDashboardPage() {
                   : undefined
                 return (
                   <TableRow key={order.id}>
-                    <TableCell>
+                    <TableCell className="max-w-[120px] truncate">
                       <Link
                         href={`/client/orders/${order.id}`}
                         className="font-medium hover:text-[#B83E7A]"
@@ -112,9 +108,9 @@ export default async function ClientDashboardPage() {
                       </Link>
                     </TableCell>
                     <TableCell>{property?.name ?? '—'}</TableCell>
-                    <TableCell>
+                    <TableCell className="whitespace-nowrap">
                       {order.scheduled_at
-                        ? dateFormatter.format(new Date(order.scheduled_at))
+                        ? formatCompactDate(order.scheduled_at, locale)
                         : '—'}
                     </TableCell>
                     <TableCell>
