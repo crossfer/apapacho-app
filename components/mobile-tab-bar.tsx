@@ -18,14 +18,14 @@ export function MobileTabBar({ items }: { items: MobileTabBarItem[] }) {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-20 flex border-t border-black/10 bg-[#4F6D5A] pb-[env(safe-area-inset-bottom)] lg:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-20 flex h-16 min-h-16 border-t border-black/10 bg-[#4F6D5A] pb-[env(safe-area-inset-bottom)] lg:hidden">
       {items.map((item) => {
         const active = pathname === item.href || pathname.startsWith(`${item.href}/`)
         return (
           <Link
             key={item.href}
             href={item.href}
-            className="flex min-w-0 flex-1 flex-col items-center gap-0.5 py-2"
+            className="flex min-w-0 flex-1 flex-col items-center justify-center gap-1 py-2"
           >
             <span
               className={cn(
@@ -37,7 +37,7 @@ export function MobileTabBar({ items }: { items: MobileTabBarItem[] }) {
             </span>
             <span
               className={cn(
-                'w-full truncate px-0.5 text-center text-[10px] font-medium leading-none',
+                'w-full truncate px-0.5 text-center text-xs font-medium leading-none',
                 active ? 'text-white' : 'text-white/70',
               )}
             >

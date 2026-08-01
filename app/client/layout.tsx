@@ -8,10 +8,10 @@ import { SignOutButton } from '@/components/sign-out-button'
 import { MobileTabBar } from '@/components/mobile-tab-bar'
 
 const NAV = [
-  { href: '/client/dashboard', key: 'dashboard', icon: <LayoutDashboard className="h-5 w-5" /> },
-  { href: '/client/calendar', key: 'calendar', icon: <CalendarDays className="h-5 w-5" /> },
-  { href: '/client/orders', key: 'orders', icon: <ClipboardList className="h-5 w-5" /> },
-  { href: '/client/properties', key: 'properties', icon: <Home className="h-5 w-5" /> },
+  { href: '/client/dashboard', key: 'dashboard', icon: <LayoutDashboard size={24} /> },
+  { href: '/client/calendar', key: 'calendar', icon: <CalendarDays size={24} /> },
+  { href: '/client/orders', key: 'orders', icon: <ClipboardList size={24} /> },
+  { href: '/client/properties', key: 'properties', icon: <Home size={24} /> },
 ] as const
 
 export default async function ClientLayout({
