@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
@@ -12,6 +12,21 @@ export const metadata: Metadata = {
   title: APP_NAME,
   description:
     'Home care de lujo con transparencia total para propiedades en San Diego y Los Ángeles.',
+  manifest: '/manifest.webmanifest',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Apapacho',
+  },
+}
+
+// themeColor lives on the viewport export, not metadata, per the Next.js 14
+// App Router API (putting it in metadata triggers a build-time warning).
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#4F6D5A',
 }
 
 export default async function RootLayout({
