@@ -302,22 +302,60 @@
     }
   },
   "client": {
-    "myProperties": "Mis propiedades",
-    "activeServices": "Servicios activos",
-    "history": "Historial",
-    "requestService": "Solicitar servicio",
-    "performedBy": "Realizado por",
-    "at": "a las",
-    "empty": "No tienes servicios activos en este momento.",
-    "historyEmpty": "Aún no hay servicios en tu historial.",
-    "columns": {
-      "serviceType": "Tipo de servicio",
-      "property": "Propiedad",
-      "date": "Fecha",
-      "status": "Estatus"
+    "nav": {
+      "dashboard": "Dashboard",
+      "calendar": "Calendario",
+      "orders": "Órdenes",
+      "properties": "Propiedades"
     },
+    "dashboard": {
+      "title": "Dashboard",
+      "activeOrders": "Órdenes activas",
+      "completedOrders": "Órdenes completadas",
+      "propertiesRegistered": "Propiedades registradas",
+      "upcomingServices": "Próximos servicios",
+      "noUpcoming": "No hay servicios próximos programados.",
+      "columns": {
+        "serviceType": "Tipo de servicio",
+        "property": "Propiedad",
+        "date": "Fecha",
+        "status": "Estatus"
+      }
+    },
+    "orders": {
+      "title": "Órdenes",
+      "empty": "Aún no hay órdenes.",
+      "columns": {
+        "serviceType": "Tipo de servicio",
+        "property": "Propiedad",
+        "scheduledDate": "Fecha programada",
+        "status": "Estatus"
+      }
+    },
+    "properties": {
+      "title": "Propiedades",
+      "empty": "Sin propiedades registradas.",
+      "columns": {
+        "name": "Nombre",
+        "address": "Dirección",
+        "city": "Ciudad",
+        "activeOrders": "Órdenes activas"
+      },
+      "detail": {
+        "back": "Volver a propiedades",
+        "untitled": "Propiedad sin nombre",
+        "orders": "Historial de servicios",
+        "noOrders": "Sin órdenes registradas.",
+        "columns": {
+          "serviceType": "Tipo de servicio",
+          "status": "Estatus",
+          "scheduledDate": "Fecha programada"
+        }
+      }
+    },
+    "performedBy": "Realizado por",
     "detail": {
-      "back": "Volver",
+      "back": "Volver a órdenes",
       "property": "Propiedad",
       "address": "Dirección",
       "scheduledDate": "Fecha programada",

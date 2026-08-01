@@ -302,22 +302,60 @@
     }
   },
   "client": {
-    "myProperties": "My properties",
-    "activeServices": "Active services",
-    "history": "History",
-    "requestService": "Request service",
-    "performedBy": "Performed by",
-    "at": "at",
-    "empty": "You have no active services right now.",
-    "historyEmpty": "No services in your history yet.",
-    "columns": {
-      "serviceType": "Service type",
-      "property": "Property",
-      "date": "Date",
-      "status": "Status"
+    "nav": {
+      "dashboard": "Dashboard",
+      "calendar": "Calendar",
+      "orders": "Orders",
+      "properties": "Properties"
     },
+    "dashboard": {
+      "title": "Dashboard",
+      "activeOrders": "Active orders",
+      "completedOrders": "Completed orders",
+      "propertiesRegistered": "Properties registered",
+      "upcomingServices": "Upcoming services",
+      "noUpcoming": "No upcoming services scheduled.",
+      "columns": {
+        "serviceType": "Service type",
+        "property": "Property",
+        "date": "Date",
+        "status": "Status"
+      }
+    },
+    "orders": {
+      "title": "Orders",
+      "empty": "No orders yet.",
+      "columns": {
+        "serviceType": "Service type",
+        "property": "Property",
+        "scheduledDate": "Scheduled date",
+        "status": "Status"
+      }
+    },
+    "properties": {
+      "title": "Properties",
+      "empty": "No properties on file.",
+      "columns": {
+        "name": "Name",
+        "address": "Address",
+        "city": "City",
+        "activeOrders": "Active orders"
+      },
+      "detail": {
+        "back": "Back to properties",
+        "untitled": "Untitled property",
+        "orders": "Service history",
+        "noOrders": "No orders on file.",
+        "columns": {
+          "serviceType": "Service type",
+          "status": "Status",
+          "scheduledDate": "Scheduled date"
+        }
+      }
+    },
+    "performedBy": "Performed by",
     "detail": {
-      "back": "Back",
+      "back": "Back to orders",
       "property": "Property",
       "address": "Address",
       "scheduledDate": "Scheduled date",

@@ -100,7 +100,7 @@ export default async function ClientOrderDetailPage({
     <div className="flex flex-col gap-8">
       <div>
         <Link
-          href="/client/dashboard"
+          href="/client/orders"
           className="text-sm text-[#6B4A34]/60 hover:text-[#B83E7A]"
         >
           ← {t('detail.back')}
