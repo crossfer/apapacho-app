@@ -32,6 +32,32 @@
 .apapacho-calendar .fc-toolbar-title {
   color: #6b4a34;
   font-weight: 600;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 640px) {
+  .apapacho-calendar .fc-toolbar-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Below `sm`, the title's default 1.75em size + the prev/next/today and
+   Month/Week/Day button groups don't fit on one row. Force the title chunk
+   onto its own full-width row (order + flex-basis: 100% breaks the flex-wrap
+   line here) so the two button groups fall to the row below, where the
+   toolbar's existing `justify-content: space-between` spreads them to the
+   edges instead of fighting the title for space. */
+@media (max-width: 639px) {
+  .apapacho-calendar .fc-header-toolbar {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+
+  .apapacho-calendar .fc-header-toolbar .fc-toolbar-chunk:nth-child(2) {
+    order: -1;
+    flex-basis: 100%;
+    text-align: center;
+  }
 }
 
 .apapacho-calendar .fc-col-header-cell-cushion,
@@ -43,6 +69,8 @@
 .apapacho-calendar .fc-button {
   text-transform: capitalize;
   box-shadow: none !important;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
 }
 
 .apapacho-calendar .fc-day-today .fc-daygrid-day-number {
