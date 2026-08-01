@@ -1,17 +1,19 @@
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
+import { LayoutDashboard, CalendarDays, Users, Wrench, ClipboardList, Home } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
 import { APP_NAME } from '@/lib/constants'
 import { SignOutButton } from '@/components/sign-out-button'
+import { MobileTabBar } from '@/components/mobile-tab-bar'
 
 const NAV = [
-  { href: '/admin/dashboard', key: 'dashboard' },
-  { href: '/admin/calendario', key: 'calendar' },
-  { href: '/admin/clientes', key: 'clients' },
-  { href: '/admin/proveedores', key: 'providers' },
-  { href: '/admin/ordenes', key: 'orders' },
-  { href: '/admin/propiedades', key: 'properties' },
+  { href: '/admin/dashboard', key: 'dashboard', icon: <LayoutDashboard className="h-5 w-5" /> },
+  { href: '/admin/calendario', key: 'calendar', icon: <CalendarDays className="h-5 w-5" /> },
+  { href: '/admin/clientes', key: 'clients', icon: <Users className="h-5 w-5" /> },
+  { href: '/admin/proveedores', key: 'providers', icon: <Wrench className="h-5 w-5" /> },
+  { href: '/admin/ordenes', key: 'orders', icon: <ClipboardList className="h-5 w-5" /> },
+  { href: '/admin/propiedades', key: 'properties', icon: <Home className="h-5 w-5" /> },
 ] as const
 
 export default async function AdminLayout({
@@ -31,7 +33,7 @@ export default async function AdminLayout({
 
   return (
     <div className="flex min-h-screen bg-[#E9D8B4]/30">
-      <aside className="hidden w-64 shrink-0 flex-col bg-[#4F6D5A] p-4 text-white md:flex">
+      <aside className="hidden w-64 shrink-0 flex-col bg-[#4F6D5A] p-4 text-white lg:flex">
         <div className="mb-8 px-2 text-lg font-semibold text-[#B68A4C]">
           {APP_NAME}
         </div>
@@ -48,7 +50,10 @@ export default async function AdminLayout({
         </nav>
         <SignOutButton className="mt-4 rounded-md px-3 py-2 text-left text-sm text-white/70 hover:bg-white/10" />
       </aside>
-      <main className="flex-1 p-6">{children}</main>
+      <main className="flex-1 p-6 pb-24 lg:pb-6">{children}</main>
+      <MobileTabBar
+        items={NAV.map((item) => ({ href: item.href, label: t(item.key), icon: item.icon }))}
+      />
     </div>
   )
 }
