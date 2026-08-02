@@ -5,7 +5,15 @@ import { useTranslations } from 'next-intl'
 import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
 
-export function SignOutButton({ className }: { className?: string }) {
+export function SignOutButton({
+  className,
+  children,
+  'aria-label': ariaLabel,
+}: {
+  className?: string
+  children?: React.ReactNode
+  'aria-label'?: string
+}) {
   const router = useRouter()
   const t = useTranslations('common')
 
@@ -17,8 +25,13 @@ export function SignOutButton({ className }: { className?: string }) {
   }
 
   return (
-    <button type="button" onClick={handleSignOut} className={cn(className)}>
-      {t('signOut')}
+    <button
+      type="button"
+      onClick={handleSignOut}
+      className={cn(className)}
+      aria-label={ariaLabel}
+    >
+      {children ?? t('signOut')}
     </button>
   )
 }

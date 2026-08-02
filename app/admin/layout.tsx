@@ -1,7 +1,15 @@
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
-import { LayoutDashboard, CalendarDays, Users, Wrench, ClipboardList, Home } from 'lucide-react'
+import {
+  LayoutDashboard,
+  CalendarDays,
+  Users,
+  Wrench,
+  ClipboardList,
+  Home,
+  LogOut,
+} from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
 import { APP_NAME } from '@/lib/constants'
 import { SignOutButton } from '@/components/sign-out-button'
@@ -30,6 +38,7 @@ export default async function AdminLayout({
   if (!user) redirect('/login')
 
   const t = await getTranslations('admin.nav')
+  const tCommon = await getTranslations('common')
 
   return (
     <div className="flex min-h-screen bg-[#E9D8B4]/30">
@@ -50,7 +59,18 @@ export default async function AdminLayout({
         </nav>
         <SignOutButton className="mt-4 rounded-md px-3 py-2 text-left text-sm text-white/70 hover:bg-white/10" />
       </aside>
-      <main className="min-w-0 flex-1 p-6 pb-24 lg:pb-6">{children}</main>
+      <div className="flex min-w-0 flex-1 flex-col">
+        <header className="sticky top-0 z-10 flex items-center justify-between bg-[#4F6D5A] px-4 py-3 text-white lg:hidden">
+          <span className="text-sm font-semibold text-[#B68A4C]">{APP_NAME}</span>
+          <SignOutButton
+            aria-label={tCommon('signOut')}
+            className="rounded-md p-2 text-white/70 transition hover:bg-white/10"
+          >
+            <LogOut size={18} />
+          </SignOutButton>
+        </header>
+        <main className="flex-1 p-6 pb-24 lg:pb-6">{children}</main>
+      </div>
       <MobileTabBar
         items={NAV.map((item) => ({ href: item.href, label: t(item.key), icon: item.icon }))}
       />
